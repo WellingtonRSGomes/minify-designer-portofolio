@@ -1,0 +1,117 @@
+/*=========== PROJECTS ============*/ 
+.projects__filter{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3.125rem;
+    margin-bottom: 1.875rem;
+}
+
+.project__filter-item{
+    cursor: pointer;
+}
+
+.project__filter-title{
+    font-weight: 2rem;
+    font-weight: var(--font-semi-bold);
+    color: var(--text-color-light);
+    padding-bottom: var(--mb-0-5);
+}
+
+/* Active Link Projects */
+.active-projects .project__filter-title{
+    color: var(--first-color);
+    border-bottom: 3px solid var(--first-color);
+}
+
+.projects__content{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.875rem;
+}
+
+.projects__card-img{
+    border-radius: 1.5625rem;
+    margin-bottom: 1.875rem;
+}
+
+.project__card-title{
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-0-5);
+}
+
+.projects__card-group{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 3.125rem;
+}
+
+.projects__card-reviews{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .75rem;
+}
+
+.projects__card-icon{
+    font-size: 1.125rem;
+}
+
+/*============ E-MAIL ===========*/
+.email__container{
+    background-color: var(--first-color);
+    border-radius: 1.5625rem;
+    padding: 3.75rem 4.0625rem;
+    grid-template-columns: repeat(2, max-content);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.email__title{
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--white-color);
+    line-height: 109%;
+}
+
+.email__group{
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.email__button{
+    color: var(--white-color);
+    border-color: var(--white-color);
+}
+
+.email__icon{
+    font-size: 1.125rem;
+}
+
+/*=========== BREAKPOINTS ============*/ 
+/* For medium  devices */
+@media screen and (max-width: 576px){
+    .projects__filter{
+        gap: 1.25rem;
+    }
+    .projects__content{
+        grid-template-columns: 1fr;
+    }
+
+    .email__container{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 1.875rem;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 320px){
+    .projects__filter{
+        justify-content: center;
+    }
+    .email__container{
+        padding: 20px 1.5625rem;
+    }
+}

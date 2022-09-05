@@ -1,0 +1,228 @@
+/*=========== HOME ===========*/
+.about{
+    margin-top: 4.375rem;
+}
+
+.about__container{
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 2px solid #E1E1E1;
+    padding-bottom: 5rem;
+}
+
+.about__img{
+    border-radius: 1.875rem;
+}
+
+.about__title{
+    font-size: var(--h1-font-size);
+}
+
+.about__office{
+    display: block;
+    margin-bottom: var(--mb-1);
+}
+
+.about__description{
+    margin-bottom: 1.25rem;
+}
+
+.about__contact{
+    margin-bottom: 1.625rem;
+}
+
+.about__contact span{
+    display: block;
+}
+
+.about__contact span:nth-child(2){
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+}
+
+.about__skills-title{
+    display: block;
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-0-75);
+}
+
+.about__skills-group{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.skills__img{
+    transition: transform .2s;
+}
+
+.skills__img:hover{
+    transform: translateY(-3px);
+}
+
+/*=========== BIO ============*/
+.bio__container{
+    gap: 2.5rem;
+    border-bottom: 2px solid #E1E1E1;
+    padding-bottom: 5rem;
+}
+
+.bio__img{
+    border-radius: 1.5625rem;
+}
+
+/*=========== TEAM ===========*/
+.team__container{
+    grid-template-columns: repeat(3, 245px);
+    justify-content: center;
+    gap: 5rem;
+}
+
+.team__card{
+    text-align: center;
+}
+
+.team__img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: var(--mb-1-5);
+}
+
+.team__name{
+    font-size: 2.25rem;
+    font-weight: var(--font-medium);
+}
+
+.team__office{
+    color: var(--text-color-light);
+}
+
+/*=========== MAP ============*/
+.map{
+    background-color: hsl(207, 66%, 74%);
+}
+
+.map__container{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+iframe{
+    width: 380px;
+    height: 480px;
+    border-radius: 1.875rem;
+    border: none;
+}
+
+.map__title{
+    color: var(--white-color);
+}
+
+.form{
+    gap: 1.5625rem;
+}
+
+.form__input{
+    font-size: var(--small-font-size);
+    background-color: var(--white-color);
+    border: none;
+    outline: none;
+    border-radius: .625rem;
+    padding: .875rem 1.875rem;
+}
+
+.form__input::placeholder{
+    color: var(--text-color-light);
+}
+
+textarea{
+    height: 120px;
+    resize: none;
+}
+
+.form button{
+    width: max-content;
+    justify-self: flex-end;
+}
+
+/*=========== BREAKPOINTS ============*/
+/* For lager devices */
+@media screen and (max-width: 870px){
+    .team__container{
+        gap: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .map__container{
+        gap: 1.5625rem;
+    }
+    iframe{
+        width: 100%;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 767px){
+    .about__container{
+        gap: 1.5625rem;
+    }
+
+    .team__container{
+        grid-template-columns: repeat(2, 245px);
+        gap: 1.25rem;
+    }
+
+    .team__name{
+        font-size: 1.5625rem;
+    }
+    .team__img{
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .about{
+        margin-top: initial;
+    }
+    .about__container{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .about__img{
+        width: 280px;
+    }
+    .about__description{
+        padding-right: 3.125rem;
+    }
+
+    .team__container{
+        grid-template-columns: repeat(2, 200px);
+    }
+    .team__img{
+        width: 130px;
+        height: 130px;
+    }
+
+    .map__container{
+        grid-template-columns: .7fr;
+        justify-content: center;
+    }
+    iframe{
+        height: 380px;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 375px){
+    .team__container{
+        grid-template-columns: 245px;
+    }
+
+    .map__container{
+        grid-template-columns: 1fr;
+    }
+    iframe{
+        order: 1;
+    }
+}

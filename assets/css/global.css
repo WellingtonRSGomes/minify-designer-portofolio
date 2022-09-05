@@ -1,0 +1,404 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 5rem; /*80px*/
+  
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --hue: 40;
+    --first-color: hsl(var(--hue), 80%, 66%);
+    --first-color-alt: hsl(var(--hue), 80%, 55%);
+    --first-color-light: hsl(var(--hue), 80%, 88%);
+    --first-color-lighten: hsl(var(--hue), 80%, 92%);
+    --title-color: hsl(var(--hue), 5%, 9%);
+    --text-color: hsl(var(--hue), 0%, 0%);
+    --text-color-light: hsl(var(--hue), 0%, 51%);
+    --text-color-header: hsl(var(--hue), 0%, 18%);
+    --body-color: hsl(var(--hue), 0%, 95%);
+    --container-color: hsl(var(--hue), 0%, 91%);
+    --white-color: #FFF;
+  
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Poppins', sans-serif;
+    --h1-font-size: 3rem;
+    --h2-font-size: 3rem;
+    --h3-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .9375rem;
+    --smaller-font-size: .875rem;
+  
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+  
+    /*========== Margenes Bottom ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+  
+    /*========== z index ==========*/
+    --z-fixed: 100;
+    --z-tooltip: 10;
+}
+
+  /* Responsive typography */
+@media screen and (max-width: 968px) {
+    :root {
+      --h1-font-size: 2rem;
+      --h2-font-size: 2rem; /*1.25rem*/
+      --h3-font-size: 1rem;
+      --normal-font-size: .938rem;
+      --small-font-size: .813rem;
+      --smaller-font-size: .75rem;
+    }
+}
+  
+/*=============== BASE ===============*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  
+html{
+    scroll-behavior: smooth;
+}
+  
+body,
+button,
+input,
+textarea{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+  
+body{
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+  
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+  
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+  
+ul{
+    list-style: none;
+}
+  
+a{
+    text-decoration: none;
+}
+  
+img{
+    max-width: 100%;
+    height: auto;
+}
+  
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container{
+    max-width: 968px;
+    margin-inline: auto
+}
+
+/* Setting the margin to 1.25rem/20px for smaller devices  */
+@media screen and (max-width: 992px){
+    .container{
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+    }
+}
+@media screen and (max-width: 320px){
+    .container{
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
+}
+
+.main{
+    overflow: hidden; /*For animation Scroll Reval*/
+}
+
+.grid{
+    display: grid;
+}
+
+.text-color{
+    color: var(--first-color);
+}
+
+.section{
+    padding: 5.5rem 0 2rem;
+}
+
+.section__title,
+.section__title-center{
+    font-size: var(--h2-font-size);
+    line-height: 109%;
+    margin-bottom: var(--mb-2-5);
+}
+
+.section__title-center{
+    text-align: center;
+}
+
+.section__description{
+    line-height: 2.8125rem;
+}
+
+.follow__icon{
+    font-size: 1.875rem;
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.follow__icon:hover{
+    color: var(--first-color);
+    transform: translateY(-3px);
+}
+  
+/*=============== HEADER & NAV ===============*/
+.header{
+    width: 100%;
+    background-color: var(--body-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: background .3s;
+}
+
+.nav{
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Adjusting Nav height to 3.5rem/56px */
+@media screen and (max-width: 767px){
+    .nav{
+        height: calc(var(--header-height) - 1.5rem);
+    }
+}
+
+.nav__logo,
+.nav__toggle,
+.nav__close{
+    color: var(--title-color);
+}
+
+.nav__toggle,
+.nav__close{
+    font-size: 1.5625rem;
+    display: none;
+}
+
+.nav__logo{
+    font-size: 1.375rem;
+    font-weight: var(--font-bold);
+    transition: color .2s;
+}
+
+.nav__logo:hover{
+    color: var(--first-color);
+}
+
+.nav__list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav__link{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+    transition: color .2s;
+}
+
+.nav__link:hover{
+    color: var(--first-color);
+}
+  
+@media screen and (max-width: 767px){
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: var(--white-color);
+        box-shadow: -2px 0 4px hsla(var(--hue), 80%, 15%, .1);
+        border-radius: 1rem 0 0 1rem;
+        width: 80%;
+        height: 100%;
+        padding: 3rem 0 0 4rem;
+        z-index: var(--z-fixed);
+        transition: .4s;
+    }
+    .nav__close,
+    .nav__toggle{
+        display: block;
+    }
+    .nav__close{
+        position: absolute;
+        top: 1rem;
+        right: 1.25rem;
+        cursor: pointer;
+    }
+    .nav__list{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+  
+/* Show menu */
+.show-menu{
+    right: 0;     
+}
+
+/* Change background header */
+.scroll-header{
+    background-color: var(--white-color);
+    box-shadow: 0 2px 4px hsla(var(--hue), 0%, 88%, .5);
+}
+  
+/* Active link */
+.active-link{
+    color: var(--first-color);
+}
+
+/*=============== BUTTONS ===============*/
+.button{
+    display: inline-block;
+    font-size:  var(--normal-font-size);
+    font-weight: var(--font-bold);
+    color: var(--white-color);
+    background-color: var(--first-color);
+    border: 2px solid var(--first-color);
+    border-radius: .625rem;
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.button:hover{
+    background-color: var(--first-color-alt);
+    border: 2px solid var(--first-color-alt);
+}
+
+.button--light{
+    color: var(--title-color);
+    background-color: transparent;
+    border: 2px solid var(--first-color);
+}
+
+.button--light:hover{
+    color: var(--white-color);
+    border: 2px solid var(--first-color-alt);
+}
+
+.button--flex{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .75rem;
+}
+
+.button--white{
+    color: var(--title-color);
+    background-color: var(--white-color);
+}
+
+/*=============== FOOTER ===============*/
+.footer{
+    background-color: var(--body-color);
+    padding: 2.5rem 0;
+}
+
+.footer__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .9375rem;
+}
+
+.footer__title{
+    font-size: 1.875rem;
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+}
+
+.footer__social{
+    display: inline-flex;
+    gap: .9375rem;
+}
+
+.footer__copy{
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+@media screen and (max-width: 576px){
+    .footer__container{
+        flex-direction: column;
+    }
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup{
+    position: fixed;
+    background-color: var(--first-color);
+    right: 1rem;
+    bottom: -30%;
+    display: inline-flex;
+    padding: .5rem;
+    border-radius: .25rem;
+    z-index: var(--z-tooltip);
+    opacity: .8;
+    transition: .4s;
+}
+
+.scrollup__icon{
+    font-size: 1rem;
+    color: var(--white-color);
+}
+
+.scrollup:hover{
+    background-color: var(--first-color-alt);
+    opacity: 1;
+}
+
+/* Show Scroll Up*/
+.show-scroll{
+    bottom: 3rem;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+    width: .6rem;
+    background-color: var(--first-color-light);
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: var(--first-color);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--first-color-alt);
+}
